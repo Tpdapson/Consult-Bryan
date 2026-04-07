@@ -167,30 +167,27 @@ ul { list-style: none; }
    ANIMATION SYSTEM
    ============================================================ */
 .fade-up {
-  opacity: 0;
-  transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+.js-animations .fade-up { opacity: 0; transform: translateY(30px); }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
 .fade-in {
-  opacity: 0;
   transition: opacity 0.7s ease-out;
 }
+.js-animations .fade-in { opacity: 0; }
 .fade-in.visible { opacity: 1; }
 
 .slide-left {
-  opacity: 0;
-  transform: translateX(-36px);
   transition: opacity 0.65s ease-out, transform 0.65s ease-out;
 }
+.js-animations .slide-left { opacity: 0; transform: translateX(-36px); }
 .slide-left.visible { opacity: 1; transform: translateX(0); }
 
 .slide-right {
-  opacity: 0;
-  transform: translateX(36px);
   transition: opacity 0.65s ease-out, transform 0.65s ease-out;
 }
+.js-animations .slide-right { opacity: 0; transform: translateX(36px); }
 .slide-right.visible { opacity: 1; transform: translateX(0); }
 
 .delay-1 { transition-delay: 0.1s; }

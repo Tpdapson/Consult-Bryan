@@ -3,6 +3,9 @@
    Animations: Intersection Observer (no dependencies)
    ============================================================ */
 
+// Enable animations only when JS is confirmed running
+document.documentElement.classList.add('js-animations');
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --- NAV: Scroll effect (only on pages with dark hero) --- */
