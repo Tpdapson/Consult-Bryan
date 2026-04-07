@@ -8,14 +8,38 @@ document.documentElement.classList.add('js-animations');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --- NAV: Scroll effect (only on pages with dark hero) --- */
+  /* --- NAV: Scroll — white bg + hide-on-down / show-on-up --- */
   const nav = document.querySelector('.nav');
-  const isContactPage = nav.classList.contains('contact-nav');
-  if (!isContactPage) {
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-  }
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const updateNav = () => {
+    const y = window.scrollY;
+
+    // Switch to white bg once past the top bar
+    nav.classList.toggle('scrolled', y > 60);
+
+    if (y <= 60) {
+      // At the very top — always visible
+      nav.classList.remove('nav-hidden');
+    } else if (y > lastScrollY + 8) {
+      // Scrolling DOWN — hide
+      nav.classList.add('nav-hidden');
+    } else if (y < lastScrollY - 4) {
+      // Scrolling UP — reveal
+      nav.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = y;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  }, { passive: true });
 
   /* --- NAV: Mobile hamburger --- */
   const toggle = document.querySelector('.nav-toggle');
