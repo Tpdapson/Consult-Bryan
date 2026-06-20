@@ -309,6 +309,8 @@ ul { list-style: none; }
   background: var(--slate-deeper);
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 12px 0 24px;
+  height: calc(100vh - 68px);
+  overflow-y: auto;
 }
 .nav-mobile a {
   padding: 13px 32px;
@@ -322,7 +324,7 @@ ul { list-style: none; }
   color: var(--white);
   padding-left: 40px;
 }
-.nav-mobile .btn { margin: 12px 32px 0; }
+.nav-mobile .btn { margin: 12px 32px 0; text-align: center; }
 
 /* Mobile menu: light when scrolled */
 .nav.scrolled .nav-mobile {
@@ -605,7 +607,7 @@ ul { list-style: none; }
    ============================================================ */
 .narrative {
   background: var(--sky-tint);
-  padding: 120px 0;
+  padding: 88px 0;
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--sky-light);
@@ -673,7 +675,7 @@ ul { list-style: none; }
    ============================================================ */
 .services {
   background: var(--white);
-  padding: 112px 0;
+  padding: 80px 0;
 }
 .services-top {
   display: grid;
@@ -803,7 +805,7 @@ ul { list-style: none; }
    ============================================================ */
 .why {
   background: var(--white);
-  padding: 112px 0;
+  padding: 80px 0;
 }
 .why-header {
   display: flex;
@@ -860,7 +862,7 @@ ul { list-style: none; }
    ============================================================ */
 .process {
   background: var(--off-white);
-  padding: 112px 0;
+  padding: 80px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -930,7 +932,7 @@ ul { list-style: none; }
    ============================================================ */
 .testimonials {
   background: var(--slate-deeper);
-  padding: 112px 0;
+  padding: 80px 0;
 }
 .testimonials-header {
   margin-bottom: 52px;
@@ -1013,7 +1015,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.40);
+  background: rgba(255, 255, 255, 0.95);
   z-index: 0;
 }
 .cta-inner {
@@ -1425,12 +1427,15 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
-  section { padding: 72px 0; }
+  section { padding: 64px 0; }
+  .narrative, .services, .why, .process, .testimonials { padding: 64px 0; }
 
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
 
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero { min-height: auto; }
+  .hero .container { padding-top: 24px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; min-height: auto; padding: 30px 0; }
   .hero-title { font-size: clamp(44px, 10vw, 64px); }
   .hero-visual { display: none; }
   .hero-top-bar { display: none; }
